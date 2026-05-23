@@ -1713,17 +1713,21 @@
     .mobile-toggle { display: block; }
     .nav-mobile {
       display: block;
-      position: absolute;
-      top: 100%; left: 0; right: 0;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
       background: var(--cream);
       border-bottom: 1px solid var(--line);
       padding: 24px 22px 30px;
-      transform: translateY(-110%);
+      transform: translateY(-120%);
       transition: transform .35s ease;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-      z-index: 99;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      z-index: 9998;
+      pointer-events: none;
     }
-    .nav-mobile.open { transform: translateY(0); }
+    .nav-mobile.open {
+      transform: translateY(0);
+      pointer-events: auto;
+    }
     .nav-mobile ul {
       list-style: none;
       display: flex;
@@ -1742,9 +1746,9 @@
     }
     .nav-mobile .btn { width: 100%; justify-content: center; }
 
-    .brand-name { font-size: 15px; }
-    .brand-sub { font-size: 9px; }
-    .logo-mono { width: 40px; height: 40px; font-size: 18px; }
+    .brand-name { font-size: 13px; }
+    .brand-sub { font-size: 9px; letter-spacing: 0.2em; }
+    .logo-mono { width: 38px; height: 38px; font-size: 17px; }
 
     .hero { padding-top: 110px; padding-bottom: 60px; }
     .hero-right { padding: 44px 28px; min-height: 480px; }
@@ -1822,17 +1826,19 @@
       <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
   </div>
-  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menú móvil">
-    <ul role="list">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#areas">Áreas de práctica</a></li>
-      <li><a href="#despacho">El despacho</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-    <a href="#contacto" class="btn btn-primary">Solicitar cita <span class="arrow" aria-hidden="true">→</span></a>
-  </div>
 </nav>
+
+<!-- Mobile menu — outside <nav> to avoid backdrop-filter containment -->
+<div class="nav-mobile" id="navMobile" aria-label="Menú móvil">
+  <ul role="list">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#areas">Áreas de práctica</a></li>
+    <li><a href="#despacho">El despacho</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#contacto" class="btn btn-primary">Solicitar cita <span class="arrow" aria-hidden="true">→</span></a>
+</div>
 
 <main id="main-content" tabindex="-1">
 
