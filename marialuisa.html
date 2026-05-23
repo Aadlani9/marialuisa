@@ -225,6 +225,7 @@
     -webkit-backdrop-filter: saturate(140%) blur(14px);
     border-bottom: 1px solid transparent;
     transition: all .35s ease;
+    overflow: visible;
   }
   .nav.scrolled {
     background: rgba(250, 247, 242, 0.96);
@@ -1712,8 +1713,8 @@
     .mobile-toggle { display: block; }
     .nav-mobile {
       display: block;
-      position: fixed;
-      top: 70px; left: 0; right: 0;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
       background: var(--cream);
       border-bottom: 1px solid var(--line);
       padding: 24px 22px 30px;
